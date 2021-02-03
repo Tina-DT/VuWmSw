@@ -54,4 +54,4 @@ The following MindMap was designed to show the possible activites for a customer
 
 @endmindmap
 ```
-<p align="left"><img src="media/image1.png" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: MindMap - Zalando Shopping</b></p>
+<p align="left"><img src="Mindmap Zalando Shopping.PNG" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: MindMap - Zalando Shopping</b></p>
