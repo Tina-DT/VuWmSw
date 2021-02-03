@@ -55,3 +55,61 @@ The following MindMap was designed to show the possible activites for a customer
 @endmindmap
 ```
 <p align="left"><img src="Mindmap Zalando Shopping.PNG" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: MindMap - Zalando Shopping</b></p>
+
+The following Activity Diagram was designed to show the possible activites for a customer in the Shop Zalando:
+```
+@startuml
+
+title Activity Diagram - Creating an account and Shopping in Zalando
+
+start
+
+:enter your email address; 
+note right: Existing accounts with the email will be checked
+
+:click next; 
+
+
+if (Account exists?) then (yes)
+ if (Need a new password?) then (yes)
+  :__change password__;
+  else (no)
+  endif
+else (no)
+  :complete all needed fields;
+  
+if (All fields are filled?) then (yes)
+  :__confirm your registration__;
+else (no)
+  :fill out missing fields;
+endif
+endif
+
+:log in;
+note left: This is a note to the left
+
+:choose an item;
+if (Is this the correct item?) then (yes)
+  :__add item to cart__;
+else (no)
+  :go on with searching;
+endif
+
+:display cart;
+:click purchase order;
+:get order status;
+:receive order;
+
+if (Does the item fits?) then (yes)
+  :__keep it__!!!;
+else (no)
+  :sent it back to shop;
+endif
+
+stop
+
+@enduml
+```
+<p align="left"><img src="Activity Diagram - Zalando Shopping.PNG" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: Activity Diagram - Zalando Shopping</b></p>
+
+
