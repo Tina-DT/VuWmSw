@@ -110,6 +110,6 @@ stop
 
 @enduml
 ```
-<p align="left"><img src="Activity Diagram - Zalando Shopping.PNG" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: Activity Diagram - Zalando Shopping</b></p>
+<p align="left"><img src="Activity Diagram - Zalando Shopping.png" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: Activity Diagram - Zalando Shopping</b></p>
 
 
