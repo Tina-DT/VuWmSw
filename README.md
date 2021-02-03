@@ -1,19 +1,20 @@
 # VuWmSw
-Verfahren und Werkzeuge moderner Softwareentwicklung
 
-## Verfahren und Werkzeuge Moderner Softwareentwicklung
-## Mentor: Prof. Dr. Stefan Edlich
-## Einsendeaufgabe 1: UML Modellierung
 
-### ESA1: MindMap und Klassendiagramm in UML
-
+### Verfahren und Werkzeuge Moderner Softwareentwicklung
+### Mentor: Prof. Dr. Stefan Edlich
+### Einsendeaufgabe 1: UML Modellierung
+<br /> <br />
 | Name               | Matrikelnummer | Hochschule  |
 | :----------------- | :------------- | :---------  |
 | Tina Heilig        | 70268368       | FH Ostfalia |
 
+<br /> <br />
+#### ESA1: MindMap und Klassendiagramm in UML
+<br /> <br />
 
 The following MindMap was designed to show the possible activites for a customer in the Shop Zalando:
-
+```
 @startmindmap
 
 * Zalando \nShopping \nproperly
@@ -52,5 +53,5 @@ The following MindMap was designed to show the possible activites for a customer
   * compare offers with other websites
 
 @endmindmap
-
+```
 <p align="left"><img src="media/image1.png" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: MindMap - Zalando Shopping</b></p>
