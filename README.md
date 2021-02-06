@@ -110,7 +110,7 @@ stop
 
 @enduml
 ```
-<p align="left"><img src="Activity Diagram - Zalando Shopping.PNG" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 2: Activity Diagram - Zalando Shopping</b></p>
+<p align="left"><img src="Activity Diagram - Zalando Shopping.png" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 2: Activity Diagram - Zalando Shopping</b></p>
 
 
 The following Class Diagram was designed to show the possible relationships in the Shop Zalando:
@@ -242,5 +242,5 @@ Customer "1" *--down- "1..*" Payment: Uses
 
 @enduml
 ```
-<p align="left"><img src="Class Diagram - Zalando Shopping.PNG" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 3: Class Diagram - Zalando Shopping</b></p>
+<p align="left"><img src="Class Diagram - Zalando Shopping.png" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 3: Class Diagram - Zalando Shopping</b></p>
 
