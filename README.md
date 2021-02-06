@@ -225,20 +225,21 @@ class Address{
 -phoneNumber: Integer
 }
 
-Customer "1" -> "1" Address
+Customer "1" - "1" Address
 Category "1" -down- "1..*" Product: BelongsTo
 Product "1..*" -down- "1..*" Supplier: Manage
 Product "1..*" -down- "1..*" GuestCustomer: View
 Customer "1" o--down- "1" ShoppingCart: MaintainContent
-Customer "1" *--down- "1..*" Order: Makes
+Customer "1" o--down- "1..*" Order: Makes
 Order "1..*" -down-* "many" Product: Contains
 Order "1" -down- "{ordered, unique}" Payment: BelongsTo
-Order "1" *--down- "1..*" Delivery: RefersTo
+Order "1" --down- "1..*" Delivery: RefersTo
 Payment "1" *--down- "1..*" Delivery: RefersTo
 Order "1" -down- "1" Date: Contains
-ShoppingCart "1" -> "1" Date
-Product "1..*" *--down- "1" ShoppingCart: Contains
-Customer "1" *--down- "1..*" Payment: Uses
+ShoppingCart "1" - "1" Date
+Product "1..*" --down- "1" ShoppingCart: Contains
+Customer "1" o--down- "1..*" Payment: Uses
+GuestCustomer "1...*" -> "1" ShoppingCart
 
 @enduml
 ```
