@@ -110,6 +110,137 @@ stop
 
 @enduml
 ```
-<p align="left"><img src="Activity Diagram - Zalando Shopping.png" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: Activity Diagram - Zalando Shopping</b></p>
+<p align="left"><img src="Activity Diagram - Zalando Shopping.PNG" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 2: Activity Diagram - Zalando Shopping</b></p>
 
+
+The following Class Diagram was designed to show the possible relationships in the Shop Zalando:
+```
+@startuml
+
+title Zalando Shopping - Relationships Class Diagram
+
+class Category {
+  -catId: Long
+  -name: String
+  -description: String
+  -prodId: Integer
+  +addProduct (Product) void
+  +remove(Product): void
+  +findProduct(Product): Product
+}
+
+class Product {
+-prodId: Integer
+-name: String
+-prodPrice: Integer
+-prodType: String
+-prodSubtype: String
++statusSupplier(Supplier)
+}
+
+class ShoppingCart{
+-cartId: Integer
+-quantityOfProducts: Integer
+-prodPrice: Integer
+-totalPrice: Integer
+-prodId: Integer
+-createdCart: Date
+  +addProduct (Product: Product{1..*]): boolean
+  +remove(Product: Product{1..*]): boolean
+  +findProduct(Product): Product
+  +SumPrice(Product): void
+  +purchase(): Order
+
+}
+
+class Order {
+-orderId: Integer
+-dateOfOrder: Date
+-prodPrice: Integer
+-totalPrice: Integer
++listProduct: List
+}
+
+class Customer {
+-custId: Integer
+-custName: String
+-custEmail: String
+-custPassword: String
+-custAddress: String
+-custPayment: Integer
+-custOrder: Integer
+-custShoppingCart: Integer
++createShoppingCart(Product: Product{1..*]): boolean
++emptyShoppingCart(): void
++purchase(): Order
++changePassword(password: String): boolean
++changeEmail(email: String): boolean
++changeAddress(address: String): boolean  
+}
+
+class Payment {
+-custId: Integer
+-custName: String
+-paidDate: Date
+-cardType: Integer
+-cardNumber: Integer
+-totalPrice: Integer
+}
+
+class Delivery {
+-deliveryId: Integer
+-orderId: Integer
+-custAddress: Integer
+-location: String
+-prodList: List <Product>
+}
+
+class GuestCustomer{
+-custShoppingCart
++createShoppingCart(Product: Product{1..*]): boolean
++emptyShoppingCart(): void
++purchase(): void
+}
+
+class Supplier {
+-name: String
+-location: String
+-prodCapability: Integer
+-prodList: List <Product>
+}
+
+class Date {
+-day: Integer
+-month: Integer
+-year: Integer
++constDate(day, month, year)
++void display()
+}
+
+class Address{
+-streetId: Integer
+-streetName: String
+-streetNumber: String
+-city: String
+-phoneNumber: Integer
+}
+
+Customer "1" -> "1" Address
+Category "1" -down- "1..*" Product: BelongsTo
+Product "1..*" -down- "1..*" Supplier: Manage
+Product "1..*" -down- "1..*" GuestCustomer: View
+Customer "1" o--down- "1" ShoppingCart: MaintainContent
+Customer "1" *--down- "1..*" Order: Makes
+Order "1..*" -down-* "many" Product: Contains
+Order "1" -down- "{ordered, unique}" Payment: BelongsTo
+Order "1" *--down- "1..*" Delivery: RefersTo
+Payment "1" *--down- "1..*" Delivery: RefersTo
+Order "1" -down- "1" Date: Contains
+ShoppingCart "1" -> "1" Date
+Product "1..*" *--down- "1" ShoppingCart: Contains
+Customer "1" *--down- "1..*" Payment: Uses
+
+@enduml
+```
+<p align="left"><img src="Class Diagram - Zalando Shopping.PNG" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 3: Class Diagram - Zalando Shopping</b></p>
 
