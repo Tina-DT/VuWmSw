@@ -14,7 +14,7 @@
 <br /> <br />
 
 The following UML diagrams are designed as a specification and visualization of an online shopping platform as an example.
-The following MindMap was designed to show the possible activities for a customer in the online shop Zalando (or any other online shop, because the products and instances are not exactly specified):
+The following MindMap was designed to show the possible activities for a customer in the online shop Zalando (or any other online shop, because the products and instances are not exactly specified). The MindMap was created with https://www.planttext.com/:
 
 ```
 @startmindmap
@@ -58,7 +58,7 @@ The following MindMap was designed to show the possible activities for a custome
 ```
 <p align="left"><img src="Mindmap Zalando Shopping.PNG" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: MindMap - Zalando Shopping</b></p>
 
-The following Activity Diagram was designed to show the possible activites for a customer in the Shop Zalando:
+The following Activity Diagram was designed to show the possible activites for a customer in the Shop Zalando (or any other online shop, because the products and instances are not exactly specified).  The Activity Diagram was created with https://www.planttext.com/:
 ```
 @startuml
 
@@ -115,11 +115,52 @@ stop
 <p align="left"><img src="Activity Diagram - Zalando Shopping.png" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 2: Activity Diagram - Zalando Shopping</b></p>
 
 
-The following Class Diagram was designed to show the possible relationships in the Shop Zalando:
+The following Class Diagram was designed to show the possible relationships in the Shop Zalando(or any other online shop, because the products and instances are not exactly specified). The Class Diagram was created with https://www.planttext.com/:
 ```
 @startuml
 
 title Zalando Shopping - Relationships Class Diagram
+
+class Customer {
+-custId: Integer
+-custShoppingCart: Integer
++createShoppingCart(Product: Product{1..*]): boolean
++emptyShoppingCart(): void
++purchase()
+ 
+}
+
+class AccountCustomer {
+-custId: Integer
+-custName: String
+-custEmail: String
+-custPassword: String
+-custAddress: String
+-custPayment: Integer
+-custOrder: Integer
++createShoppingCart(Product: Product{1..*]): boolean
++emptyShoppingCart(): void
++purchase(): Order
++changePassword(password: String): boolean
++changeEmail(email: String): boolean
++changeAddress(address: String): boolean 
+}
+
+class GuestCustomer{
+-custId: Integer
+-custShoppingCart
++createShoppingCart(Product: Product{1..*]): boolean
++emptyShoppingCart(): void
++purchase(): void
+}
+
+class Address{
+-streetId: Integer
+-streetName: String
+-streetNumber: String
+-city: String
+-phoneNumber: Integer
+}
 
 class Category {
   -catId: Long
@@ -138,6 +179,8 @@ class Product {
 -prodType: String
 -prodSubtype: String
 +statusSupplier(Supplier)
++filterProduct()
++searchProduct()
 }
 
 class ShoppingCart{
@@ -147,38 +190,23 @@ class ShoppingCart{
 -totalPrice: Integer
 -prodId: Integer
 -createdCart: Date
-  +addProduct (Product: Product{1..*]): boolean
-  +remove(Product: Product{1..*]): boolean
+  +updateContentShoppingCart(Product: Product{1..*]): boolean
   +findProduct(Product): Product
   +SumPrice(Product): void
   +purchase(): Order
-
 }
 
 class Order {
 -orderId: Integer
+-custId: Integer
 -dateOfOrder: Date
 -prodPrice: Integer
 -totalPrice: Integer
++placeOrder(): Order
 +listProduct: List
+
 }
 
-class Customer {
--custId: Integer
--custName: String
--custEmail: String
--custPassword: String
--custAddress: String
--custPayment: Integer
--custOrder: Integer
--custShoppingCart: Integer
-+createShoppingCart(Product: Product{1..*]): boolean
-+emptyShoppingCart(): void
-+purchase(): Order
-+changePassword(password: String): boolean
-+changeEmail(email: String): boolean
-+changeAddress(address: String): boolean  
-}
 
 class Payment {
 -custId: Integer
@@ -197,16 +225,9 @@ class Delivery {
 -prodList: List <Product>
 }
 
-class GuestCustomer{
--custShoppingCart
-+createShoppingCart(Product: Product{1..*]): boolean
-+emptyShoppingCart(): void
-+purchase(): void
-}
-
 class Supplier {
--name: String
--location: String
+-supName: String
+-supLocation: String
 -prodCapability: Integer
 -prodList: List <Product>
 }
@@ -219,165 +240,28 @@ class Date {
 +void display()
 }
 
-class Address{
--streetId: Integer
--streetName: String
--streetNumber: String
--city: String
--phoneNumber: Integer
-}
-
-Customer "1" - "1" Address
-Category "1" -down- "1..*" Product: BelongsTo
+AccountCustomer -up--|> Customer: Inheritance
+GuestCustomer --|> Customer: Inheritance
+Address "1" -down- "1" AccountCustomer: Owns
+Category <|--down- Product: BelongsTo
 Product "1..*" -down- "1..*" Supplier: Manage
-Product "1..*" -down- "1..*" GuestCustomer: View
-Customer "1" o--down- "1" ShoppingCart: MaintainContent
-Customer "1" o--down- "1..*" Order: Makes
-Order "1..*" -down-* "many" Product: Contains
-Order "1" -down- "{ordered, unique}" Payment: BelongsTo
+Product "0..*" -down- "0..*" GuestCustomer: View
+AccountCustomer "1" o--down- "1" ShoppingCart: MaintainContent
+AccountCustomer "1" *--down- "1..*" Order: Makes
+Order "1..*" -down-o "1..*" Product: Contains
+Order "1" -down- "1..*" Payment: BelongsTo
 Order "1" --down- "1..*" Delivery: RefersTo
 Payment "1" *--down- "1..*" Delivery: RefersTo
 Order "1" -down- "1" Date: Contains
-ShoppingCart "1" - "1" Date
-Product "1..*" --down- "1" ShoppingCart: Contains
-Customer "1" o--down- "1..*" Payment: Uses
-GuestCustomer "1...*" -> "1" ShoppingCart
+ShoppingCart "1" - "1" Date: Uses
+Product "1..*" --down- "0..1" ShoppingCart: Contains
+AccountCustomer "1" *--down- "1..*" Payment: Uses
+GuestCustomer "0..*" <- "0..1" ShoppingCart: Uses
+GuestCustomer "1...*" - "0..*" Payment: Uses
 
 @enduml
 ```
 <p align="left"><img src="Class Diagram - Zalando Shopping.png" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 3: Class Diagram - Zalando Shopping</b></p>
 
-Version 2:
-
-```
-@startuml
-
-title Zalando Shopping - Relationships Class Diagram
-
-class GuestCustomer{
--custShoppingCart
-+createShoppingCart(Product: Product{1..*]): boolean
-+emptyShoppingCart(): void
-+purchase(): void
-}
-
-class Payment {
-custId: Integer
-custName: String
-paidDate: Date
-cardType: Integer
-cardNumber: Integer
-totalPrice: Integer
-}
-
- node ShopAccount{
-    class Category {
-      -catId: Long
-      -name: String
-      -description: String
-      -prodId: Integer
-      +addProduct (Product) void
-      +remove(Product): void
-      +findProduct(Product): Product
-    }
-    
-    class Product {
-    -prodId: Integer
-    -name: String
-    -prodPrice: Integer
-    -prodType: String
-    -prodSubtype: String
-    +statusSupplier(Supplier)
-    }
-    
-    class ShoppingCart{
-    -cartId: Integer
-    -quantityOfProducts: Integer
-    -prodPrice: Integer
-    -totalPrice: Integer
-    -prodId: Integer
-    -createdCart: Date
-      +addProduct (Product: Product{1..*]): boolean
-      +remove(Product: Product{1..*]): boolean
-      +findProduct(Product): Product
-      +SumPrice(Product): void
-      +purchase(): Order
-    
-    }
-    
-    class Order {
-    -orderId: Integer
-    -dateOfOrder: Date
-    -prodPrice: Integer
-    -totalPrice: Integer
-    +listProduct: List
-    }
-    
-    class Customer {
-    -custId: Integer
-    -custName: String
-    -custEmail: String
-    -custPassword: String
-    -custAddress: String
-    -custPayment: Integer
-    -custOrder: Integer
-    -custShoppingCart: Integer
-    +createShoppingCart(Product: Product{1..*]): boolean
-    +emptyShoppingCart(): void
-    +purchase(): Order
-    +changePassword(password: String): boolean
-    +changeEmail(email: String): boolean
-    +changeAddress(address: String): boolean  
-    }
-    
-    class Delivery {
-    -deliveryId: Integer
-    -orderId: Integer
-    -custAddress: Integer
-    -location: String
-    -prodList: List <Product>
-    }
-    
-    class Supplier {
-    -name: String
-    -location: String
-    -prodCapability: Integer
-    -prodList: List <Product>
-    }
-    
-    class Date {
-    -day: Integer
-    -month: Integer
-    -year: Integer
-    +constDate(day, month, year)
-    +void display()
-    }
-    
-    class Address{
-    -streetId: Integer
-    -streetName: String
-    -streetNumber: String
-    -city: String
-    -phoneNumber: Integer
-    }
-}
-
-Customer "1" - "1" Address
-Category "1" -down- "1..*" Product: BelongsTo
-Product "1..*" -down- "1..*" Supplier: Manage
-Product "1..*" -down- "1..*" GuestCustomer: View
-Customer "1" o--down- "1" ShoppingCart: MaintainContent
-Customer "1" o--down- "1..*" Order: Makes
-Order "1..*" -down-* "many" Product: Contains
-Order "1" -down- "{ordered, unique}" Payment: BelongsTo
-Order "1" --down- "1..*" Delivery: RefersTo
-Payment "1" *--down- "1..*" Delivery: RefersTo
-Order "1" -down- "1" Date: Contains
-ShoppingCart "1" - "1" Date
-Product "1..*" --down- "1" ShoppingCart: Contains
-Customer "1" o--down- "1..*" Payment: Uses
-GuestCustomer "1...*" -> "1" ShoppingCart
-
-@enduml
-```
+The version 2 of the Class Diagram was created with https://app.diagrams.net/:
 <p align="left"><img src="Class Diagram 2 - Zalando Shopping.png" title="Class Diagram 2 - Zalando Shopping" width="100%" height="auto"><b>Abbildung 4: Class Diagram 2 - Zalando Shopping</b></p>
