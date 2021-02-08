@@ -264,4 +264,4 @@ GuestCustomer "1...*" - "0..*" Payment: Uses
 <p align="left"><img src="Class Diagram - Zalando Shopping.png" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 3: Class Diagram - Zalando Shopping</b></p>
 
 The version 2 of the Class Diagram was created with https://app.diagrams.net/:
-<p align="left"><img src="Class Diagram 2 - Zalando Shopping.png" title="Class Diagram 2 - Zalando Shopping" width="100%" height="auto"><b>Abbildung 4: Class Diagram 2 - Zalando Shopping</b></p>
+<p align="left"><img src="Class Diagram 2 - Zalando Shopping.png" title="Class Diagram 2 - Zalando Shopping" width="100%" height="auto"><b>Abbildung 4: Class Diagram 2 - Online Shopping</b></p>
