@@ -131,13 +131,12 @@ class Customer {
 }
 
 class AccountCustomer {
--custId: Integer
--custName: String
--custEmail: String
+-a_custName: String
+-a_custEmail: String
 -custPassword: String
 -custAddress: String
--custPayment: Integer
--custOrder: Integer
+-custPayment: String
+-custOrder: String
 +createShoppingCart(Product: Product{1..*]): boolean
 +emptyShoppingCart(): void
 +purchase(): Order
@@ -147,9 +146,9 @@ class AccountCustomer {
 }
 
 class GuestCustomer{
--custId: Integer
--custShoppingCart
-+createShoppingCart(Product: Product{1..*]): boolean
+-g_custName: String
+-g_custEmail: Sring
++createShoppingCart(Product: Product{0..*]): boolean
 +emptyShoppingCart(): void
 +purchase(): void
 }
@@ -260,6 +259,7 @@ GuestCustomer "0..*" <- "0..1" ShoppingCart: Uses
 GuestCustomer "1...*" - "0..*" Payment: Uses
 
 @enduml
+
 ```
 <p align="left"><img src="Class Diagram - Zalando Shopping.png" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Illustration 3: Class Diagram - Zalando Shopping</b></p>
 
