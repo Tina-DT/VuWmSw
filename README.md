@@ -10,7 +10,7 @@
 | Tina Heilig        | 70268368       | FH Ostfalia |
 
 <br /> <br />
-#### ESA1: MindMap, Activity- und Klassendiagramm in UML
+#### ESA1 - UML Modellierung: MindMap, Activity- und Klassendiagramm
 <br /> <br />
 
 The following UML diagrams are designed as a specification and visualization of an online shopping platform as an example.
