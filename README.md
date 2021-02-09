@@ -10,7 +10,7 @@
 | Tina Heilig        | 70268368       | FH Ostfalia |
 
 <br /> <br />
-#### ESA1: MindMap und Klassendiagramm in UML
+#### ESA1: MindMap, Activity- und Klassendiagramm in UML
 <br /> <br />
 
 The following UML diagrams are designed as a specification and visualization of an online shopping platform as an example.
@@ -56,7 +56,7 @@ The following MindMap was designed to show the possible activities for a custome
 
 @endmindmap
 ```
-<p align="left"><img src="Mindmap Zalando Shopping.PNG" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Abbildung 1: MindMap - Zalando Shopping</b></p>
+<p align="left"><img src="Mindmap Zalando Shopping.PNG" title="MindMap - Zalando Shopping" width="100%" height="auto"><b>Illustration 1: MindMap - Zalando Shopping</b></p>
 
 The following Activity Diagram was designed to show the possible activites for a customer in the Shop Zalando (or any other online shop, because the products and instances are not exactly specified).  The Activity Diagram was created with https://www.planttext.com/:
 ```
@@ -112,7 +112,7 @@ stop
 
 @enduml
 ```
-<p align="left"><img src="Activity Diagram - Zalando Shopping.png" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 2: Activity Diagram - Zalando Shopping</b></p>
+<p align="left"><img src="Activity Diagram - Zalando Shopping.png" title="Activity Diagram - Zalando Shopping" width="100%" height="auto"><b>Illustration 2: Activity Diagram - Zalando Shopping</b></p>
 
 
 The following Class Diagram was designed to show the possible relationships in the Shop Zalando(or any other online shop, because the products and instances are not exactly specified). The Class Diagram was created with https://www.planttext.com/:
@@ -261,7 +261,7 @@ GuestCustomer "1...*" - "0..*" Payment: Uses
 
 @enduml
 ```
-<p align="left"><img src="Class Diagram - Zalando Shopping.png" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Abbildung 3: Class Diagram - Zalando Shopping</b></p>
+<p align="left"><img src="Class Diagram - Zalando Shopping.png" title="Class Diagram - Zalando Shopping" width="100%" height="auto"><b>Illustration 3: Class Diagram - Zalando Shopping</b></p>
 
 The version 2 of the Class Diagram was created with https://app.diagrams.net/:
-<p align="left"><img src="Class Diagram 2 - Zalando Shopping.png" title="Class Diagram 2 - Zalando Shopping" width="100%" height="auto"><b>Abbildung 4: Class Diagram 2 - Online Shopping</b></p>
+<p align="left"><img src="Class Diagram 2 - Zalando Shopping.png" title="Class Diagram 2 - Zalando Shopping" width="100%" height="auto"><b>Illustration 4: Class Diagram 2 - Online Shopping</b></p>
